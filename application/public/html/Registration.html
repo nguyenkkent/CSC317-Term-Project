@@ -7,14 +7,33 @@
     <title>Registration page</title>
 </head>
 <body>
-    We're in the Registration page
+    <h1>Registration for new user</h1>
     <nav>
         <a href="Index.html">Main</a>
         <a href="Login.html"> Login</a>
         <a href="Registration.html">Registration</a>
         <a href="PostImage.html">Post Images</a>
         <a href="ViewPost.html"> View Images</a>
-
     </nav>
+    <br>
+    <form>
+        <label for="username"> Choose a username:</label>
+        <input type="text" name="username" id="username" required>
+        <br>
+        <label for="email"> Enter your email:</label>
+        <input type="text" name="email" id="email" required>
+        <br>
+        <label for="password"> Choose a password:</label>
+        <input type="password" name="password" id="password" required>
+        <br>
+        <label for="password"> confirm yours password:</label>
+        <input type="password" name="password" id="password" required>       
+        <br>
+        <input type="checkbox" name="13yr+" id="13yr+">
+        <label for="13yr+">I certify that I am atleast 13 years old and that I agree to the <a href="">Terms and Policies</a> and <a href="">Privacy Policy</a>. </label>
+        <br>
+        <button type="submit">Submit</button> 
+    </form>
+
 </body>
 </html>
