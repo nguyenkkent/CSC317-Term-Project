@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make new post</title>
+</head>
+<body>
+    <h1>Making a new post</h1>
+
+    
+    <nav>
+        <a href="Index.html">Main</a>
+        <a href="Login.html"> Login</a>
+        <a href="Registration.html">Registration</a>
+        <a href="PostImage.html">Post Images</a>
+        <a href="ViewPost.html"> View Images</a>
+    </nav>
+    <br>
+    <form> 
+        <label for="title">Enter title:</label>
+        <input type="text" name="title" id="title" required>   
+        <br>
+        <label for="description">Enter description: </label> 
+        <input type="text" name="description" id="description" required>
+        <br>
+        <label for="image">Upload image:</label>
+        <input type="file" name="image" id="image" accept="image/*" required>
+        <br>
+        <input type="checkbox" name="accept" id="accept"> Acceptable Use Policy for uploading images
+        <br>
+        <button>Submit post</button>
+    </form>
+
+</body>
+</html>
