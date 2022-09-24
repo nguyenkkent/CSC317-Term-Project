@@ -19,17 +19,21 @@
     </nav>
     <br>
     <form> 
-        <label for="title">Enter title:</label>
-        <input type="text" name="title" id="title" required>   
-        <br>
-        <label for="description">Enter description: </label> 
-        <input type="text" name="description" id="description" required>
-        <br>
-        <label for="image">Upload image:</label>
-        <input type="file" name="image" id="image" accept="image/*" required>
-        <br>
-        <input type="checkbox" name="accept" id="accept"> Acceptable Use Policy for uploading images
-        <br>
+        <fieldset>
+            <legend>New Post</legend>
+            <label for="title">Enter title:</label>
+            <input type="text" name="title" id="title" placeholder="Title of your post" required>   
+            <br>
+            <label for="description">Enter description: </label> 
+            <input type="text" name="description" id="description" placeholder="Description of your post" required>
+            <br>
+            <label for="image">Upload image:</label>
+            <input type="file" name="image" id="image" accept="image/*" required>
+            <br>
+            <input type="checkbox" name="accept" id="accept"> I hereby agree to the Acceptable Use Policy for uploading images
+            <br>            
+        </fieldset>
+
         <button>Submit post</button>
     </form>
 
