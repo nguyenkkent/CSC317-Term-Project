@@ -8,7 +8,7 @@
     <title>Registration page</title>
 </head>
 <body>
-    <h1>Register your new account</h1>
+    <h1>New user Registration</h1>
     <div id="navbar">
         <a href="Index.html">Main</a>
         <a href="Login.html">Login</a>
@@ -16,27 +16,43 @@
         <a href="PostImage.html">Post Images</a>
         <a href="ViewPost.html">View Images</a>
     </div>  
-    <br>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="username"> Choose a username</label>
+                <input type="text" class="form-control" name="username" id="username" required>
+            </div>
+                <div class="form-group">
+                <label for="email"> Enter your email</label>
+            <input type="text" class="form-control" name="email" id="email" required>                
+            </div>
+            <div class="form-group">
+                <label for="password"> Choose a password</label>
+                <input type="password" class="form-control" name="password" id="password" required>                
+            </div>
+            <div class="form-group">
+                <label for="password"> confirm yours password</label>
+                <input type="password" class="form-control" name="password" id="password" required>                 
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="13yr+" id="13yr+" required>
+                <label for="13yr+">I certify that I am atleast 13 years old and that I agree to the <a href="">Terms and Policies</a> and <a href="">Privacy Policy</a>. </label>                
+            </div>   
+            <br>
+            <br>
+            <br>
+            <button class="submit-button" type="submit">Submit</button>                    
+        </form>
+    </div>
+    
     <form>
-        <fieldset>
-            <legend>Registration information</legend>
-            <label for="username"> Choose a username:</label>
-            <input type="text" name="username" id="username" required>
-            <br>
-            <label for="email"> Enter your email:</label>
-            <input type="text" name="email" id="email" required>
-            <br>
-            <label for="password"> Choose a password:</label>
-            <input type="password" name="password" id="password" required>
-            <br>
-            <label for="password"> confirm yours password:</label>
-            <input type="password" name="password" id="password" required>       
-            <br>
-            <input type="checkbox" name="13yr+" id="13yr+" required>
-            <label for="13yr+">I certify that I am atleast 13 years old and that I agree to the <a href="">Terms and Policies</a> and <a href="">Privacy Policy</a>. </label>
-            <br>
-        </fieldset>
-        <button type="submit">Submit</button> 
+
+
+
+      
+
+            
+         
     </form>
 
 </body>
