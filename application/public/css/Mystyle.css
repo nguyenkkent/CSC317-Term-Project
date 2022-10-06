@@ -1,6 +1,12 @@
 body{
     background: #eee;
 }
+.background{
+    background-image: url(../Images/stars.jpg);
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center center;   
+}
 
 h1 {
     background-color: green;
@@ -19,6 +25,8 @@ footer {
     text-align: center;
     margin: auto;
     height: 10px;  
+    position: relative;
+    top:-4px;
 }
 
 #navbar {
@@ -93,6 +101,8 @@ footer {
     font-size: 18px;
     text-transform: uppercase;
     color: white;
+    position: relative;
+    top: 35px;
 }
 
 

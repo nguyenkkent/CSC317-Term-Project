@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="../css/Mystyle.css">
     <title>Make new post</title>
 </head>
-<body>
-    <h1>Making a new post</h1>
+<body class="background">
+    <h1>Making a new post</h1>  
     <div id="navbar">
         <a href="Index.html">Main</a>
         <a href="Login.html">Login</a>
@@ -16,25 +16,26 @@
         <a href="PostImage.html">Post Images</a>
         <a href="ViewPost.html">View Images</a>
     </div>  
-    <br>
-    <form> 
-        <fieldset>
-            <legend>New Post</legend>
-            <label for="title">Enter title:</label>
-            <input type="text" name="title" id="title" placeholder="Title of your post" required>   
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="title">Enter title:</label>
+                <input class="form-control" type="text" name="title" id="title" placeholder="Title of your post" required>   
+            </div>
+            <div class="form-group">
+                <label for="description">Enter description: </label> 
+                <input class="form-control" type="text" name="description" id="description" placeholder="Description of your post" required>    
+            </div>
+            <div class="form-group">
+                <label for="image">Upload image:</label>
+                <input class="form-control" type="file" name="image" id="image" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="accept" id="accept"> I hereby agree to the <a href="">Acceptable Use Policy </a> for uploading images
+            </div>
             <br>
-            <label for="description">Enter description: </label> 
-            <input type="text" name="description" id="description" placeholder="Description of your post" required>
-            <br>
-            <label for="image">Upload image:</label>
-            <input type="file" name="image" id="image" accept="image/*" required>
-            <br>
-            <input type="checkbox" name="accept" id="accept"> I hereby agree to the Acceptable Use Policy for uploading images
-            <br>            
-        </fieldset>
-
-        <button>Submit post</button>
-    </form>
+            <button class="submit-button">Submit</button>
+        </form>
 
 </body>
 </html>
