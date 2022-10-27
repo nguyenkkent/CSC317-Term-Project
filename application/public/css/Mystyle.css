@@ -89,6 +89,13 @@ footer {
     padding: 0 10px;
 }
 
+.container form .form-control.sucess input{
+    border-color: #09c372;
+}
+.container form .form-control.error input{
+    border-color: #ff3860;
+}
+
 .container form .submit-button{
     margin-left: 50%;
     transform: translateX(-50%);
