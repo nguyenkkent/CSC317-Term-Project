@@ -102,8 +102,8 @@ const validateInputs = () => {
     else{
         setError(password, "Password must contain at least 1 upper case letter, 1 lower case letter, and 1 special character");
     }
-
-    if (isValidEmail && isValidPassword){
+    
+    if (isValidEmail(emailValue) && isValidPassword(passwordValue, password2Value)){
         location.reload();
     }
 
