@@ -89,11 +89,18 @@ footer {
     padding: 0 10px;
 }
 
-.container form .form-control.sucess input{
+.form-group.success input {
     border-color: #09c372;
 }
-.container form .form-control.error input{
+.form-group.error input{
     border-color: #ff3860;
+    border-width : thick;
+}
+.form-group .error{
+    color: red;
+    position : relative;
+    top: -18px;
+    font-size: 14px;
 }
 
 .container form .submit-button{
