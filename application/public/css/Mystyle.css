@@ -129,32 +129,3 @@ p {
     margin: auto;
     width: 200px;
 }
-
-
-/* nav {
-    background-color: gray;
-    text-align: center;
-    padding: 15px; 
-    height: 50px;
-    height: 100%;
-     
-}
-
-a   {
-    text-decoration: none;
-    font: Segoe UI;
-
-}
-
-a:visited{
-    color: black;
-}
-
-a:hover{
-    color: #ccc; 
-    text-decoration: underline;
-
-}
-nav a:active{
-    text-decoration: solid;
-} */
