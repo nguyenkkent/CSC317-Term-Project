@@ -7,25 +7,26 @@
 </div>    
 */
 
-
+function deleteItem(item){
+    item.remove();
+    numberOfProducts--;
+    let productCounter = document.getElementById("product-counter");
+    productCounter.innerText = "Number of products: ";
+    productCounter.appendChild(document.createTextNode(numberOfProducts));
+}
 
 let numberOfProducts = 0;
-console.log("count:", numberOfProducts);
 
 function buildCards(container, card){
     numberOfProducts++;
-    console.log("current: ", numberOfProducts);
-
     let productCard = document.createElement("div");
     productCard.setAttribute("class", "product-card");
 
     productCard.addEventListener("click", function(ev){
+
+        deleteItem(ev.currentTarget);
         ev.currentTarget.remove();
-        numberOfProducts--;
-        console.log("just removed count: ", numberOfProducts);
-        let productCounter = document.getElementById("product-counter");
-        productCounter.innerText = "Number of products: ";
-        productCounter.appendChild(document.createTextNode(numberOfProducts));
+
     });
 
     let productTitle = document.createElement("h3");
@@ -60,7 +61,6 @@ function fetchProducts(){
             data.forEach(function(card){
                 buildCards(container, card);
             });
-            console.log("final count: ",numberOfProducts);
         }); 
 };
 fetchProducts();

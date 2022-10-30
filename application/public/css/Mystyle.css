@@ -150,10 +150,12 @@ p {
     /* background-color: #b399ff; */
     position: relative;
     bottom: 18px;
+    text-align: center;
+
 }
 
 .prod-img {    
-
+    justify-content: center;
 }
 
 .prod-url {
