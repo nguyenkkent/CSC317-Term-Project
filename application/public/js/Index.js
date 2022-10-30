@@ -11,6 +11,9 @@
 function buildCards(container, card){
     let productCard = document.createElement("div");
     productCard.setAttribute("class", "product-card");
+    productCard.addEventListener("click", function(ev){
+        ev.currentTarget.remove();
+    });
 
     let productTitle = document.createElement("h4");
     productTitle.setAttribute("class", "prod-title");
