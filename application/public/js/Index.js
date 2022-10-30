@@ -15,7 +15,7 @@ function buildCards(container, card){
         ev.currentTarget.remove();
     });
 
-    let productTitle = document.createElement("h4");
+    let productTitle = document.createElement("h3");
     productTitle.setAttribute("class", "prod-title");
     productTitle.appendChild(document.createTextNode(card.title));
 
@@ -30,7 +30,6 @@ function buildCards(container, card){
     productCard.appendChild(productTitle);
     productCard.appendChild(productImage);
     productCard.appendChild(productUrl);
-
     container.appendChild(productCard);
     
 };
