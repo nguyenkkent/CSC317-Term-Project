@@ -1,5 +1,3 @@
-
-
 body{
     background: #eee;
 }
@@ -11,7 +9,7 @@ body{
 }
 
 h1 {
-    width: 100%;
+    width: 100;
     background-color: green;
     color: white;
     padding: 50px;
@@ -135,29 +133,30 @@ p {
 
 .product-list {
     display : grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 45px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
 
 }
 
 .product-card {
+    justify-items: center;
     display: grid;
-    grid-template-rows: 1fr 4fr 0.5fr;
+    grid-template-rows: 1fr 3fr 0.5fr;
     background-color: #d1d4cf;
+    border: 1px solid black;
 }
 
 .prod-title {
-    background-color: #b399ff;
+    /* background-color: #b399ff; */
     position: relative;
-    bottom: 20px;
+    bottom: 18px;
 }
 
 .prod-img {    
-    padding: 100px;
 
 }
 
 .prod-url {
     overflow: hidden;
-    background-color: #b399ff;
+    /* background-color: #b399ff; */
 }
