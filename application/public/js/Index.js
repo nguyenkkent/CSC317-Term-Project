@@ -9,10 +9,20 @@
 
 function deleteItem(item){
     item.remove();
-    numberOfProducts--;
-    let productCounter = document.getElementById("product-counter");
-    productCounter.innerText = "Number of products: ";
-    productCounter.appendChild(document.createTextNode(numberOfProducts));
+
+}
+
+function fadeOutEffect(item){
+    var fadeEffect = setInterval(function(){
+        if (item.style.opacity > 0){
+            item.style.opacity-=0.25
+        }
+        else{
+            deleteItem(item);
+            clearInterval(fadeEffect);
+        }
+    }, 500);
+
 }
 
 let numberOfProducts = 0;
@@ -23,9 +33,14 @@ function buildCards(container, card){
     productCard.setAttribute("class", "product-card");
 
     productCard.addEventListener("click", function(ev){
-
-        deleteItem(ev.currentTarget);
-        ev.currentTarget.remove();
+        ev.currentTarget.style.opacity = 0.75;
+        fadeOutEffect(ev.currentTarget);
+        numberOfProducts--;
+        let productCounter = document.getElementById("product-counter");
+        productCounter.innerText = "Number of products: ";
+        productCounter.appendChild(document.createTextNode(numberOfProducts));
+        // deleteItem(ev.currentTarget);
+        // ev.currentTarget.remove();
 
     });
 
