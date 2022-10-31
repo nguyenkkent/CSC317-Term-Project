@@ -9,6 +9,7 @@ body{
 }
 
 h1 {
+    width: 100;
     background-color: green;
     color: white;
     padding: 50px;
@@ -89,6 +90,20 @@ footer {
     padding: 0 10px;
 }
 
+.form-group.success input {
+    border-color: #09c372;
+}
+.form-group.error input{
+    border-color: #ff3860;
+    border-width : thick;
+}
+.form-group .error{
+    color: red;
+    position : relative;
+    top: -18px;
+    font-size: 14px;
+}
+
 .container form .submit-button{
     margin-left: 50%;
     transform: translateX(-50%);
@@ -116,31 +131,38 @@ p {
     width: 200px;
 }
 
+.product-list {
+    display : grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
 
-/* nav {
-    background-color: gray;
+}
+
+.product-card {
+    justify-items: center;
+    display: grid;
+    grid-template-rows: 1fr 3fr 0.5fr;
+    background-color: #d1d4cf;
+    border: 1px solid black;
+}
+
+.prod-title {
+    /* background-color: #b399ff; */
+    position: relative;
+    bottom: 18px;
     text-align: center;
-    padding: 15px; 
-    height: 50px;
-    height: 100%;
-     
-}
-
-a   {
-    text-decoration: none;
-    font: Segoe UI;
 
 }
 
-a:visited{
-    color: black;
+.prod-img {    
+    justify-content: center;
 }
 
-a:hover{
-    color: #ccc; 
-    text-decoration: underline;
-
+.prod-url {
+    overflow: hidden;
+    /* background-color: #b399ff; */
 }
-nav a:active{
-    text-decoration: solid;
-} */
+
+h2{
+    text-align: center;
+}
