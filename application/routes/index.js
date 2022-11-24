@@ -3,7 +3,19 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'CSC 317 App', name:"Kent Nguyen" });
+    res.render('index', { title: 'CSC 317 App', name:"Kent Nguyen" });
 });
 
+router.get("/login", function(req, res) {
+    res.render('login');
+});
+
+router.get("/PostImage", function(req, res) {
+    res.render('PostImage')
+});
+
+router.get("/Registration", function(req, res) {
+    res.render('Registration')
+});
+//don't forget about ViewPost route?
 module.exports = router;
