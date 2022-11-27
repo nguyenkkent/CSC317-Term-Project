@@ -17,5 +17,10 @@ router.get("/PostImage", function(req, res) {
 router.get("/Registration", function(req, res) {
     res.render('Registration')
 });
+
 //don't forget about ViewPost route?
+router.get("/ViewPost", function(req, res) {
+    res.render('ViewPost')
+});
+
 module.exports = router;
