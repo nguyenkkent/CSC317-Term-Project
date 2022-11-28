@@ -19,6 +19,7 @@ h1 {
     font-size: 45px; 
 }
 
+
 footer {
     background-color: green;
     color: white;
@@ -27,7 +28,7 @@ footer {
     margin: auto;
     height: 10px;  
     position: relative;
-    top:-4px;   
+    top:-4px;    
 }
 
 #navbar {
@@ -60,11 +61,21 @@ footer {
     height: auto;
 }
 
-.container {
+/* .container {
     margin: auto;
     width: 1000px;
     max-width: 90%;
     align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 50px; 
+
+} */
+
+.container {
+    margin: auto;
+    width: 1000px;
+    max-width: 90%;
     display: flex;
     justify-content: center;
     padding: 50px; 
