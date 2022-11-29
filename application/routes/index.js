@@ -14,9 +14,17 @@ router.get("/PostImage", function(req, res) {
     res.render('PostImage')
 });
 
+
+
 router.get("/Registration", function(req, res) {
-    res.render('Registration', {js:["Registration.js"]} )
+    res.render('Registration' )
 });
+
+// router.get("/Registration", function(req, res) {
+//     res.render('Registration', {js:["Registration.js"]} )
+// });
+
+
 
 //don't forget about ViewPost route?
 router.get("/ViewPost", function(req, res) {
