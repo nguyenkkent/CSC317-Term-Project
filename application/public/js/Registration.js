@@ -83,7 +83,6 @@ const isValidPassword = (pass1, pass2) => {
     }
 
     //Assertion, above is true
-    console.log("We got out of the block ");
     setSuccess(password);
     setSuccess(password2);
     return (hasUpper && hasLower && hasSpecial && hasPasswordMatch);            
@@ -106,7 +105,6 @@ const isValidEmail = (emailStr) => {
     return false;
 };
 
-
 const validateInputs = () => {
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
@@ -116,5 +114,4 @@ const validateInputs = () => {
     if (isValidUsername(usernameValue) && isValidEmail(emailValue) && isValidPassword(passwordValue, password2Value)){
         location.reload();
     }
-
 };
