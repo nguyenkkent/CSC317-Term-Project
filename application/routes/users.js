@@ -4,7 +4,7 @@ const db = require("../conf/database");
 
 // router.post("/register", function(req, res){
 //     console.log(req.body);
-//     res.send();
+//     res.send("/r register route is working");
 // });
 
 

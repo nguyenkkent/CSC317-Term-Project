@@ -112,6 +112,6 @@ const validateInputs = () => {
     const password2Value = password2.value.trim();
   
     if (isValidUsername(usernameValue) && isValidEmail(emailValue) && isValidPassword(passwordValue, password2Value)){
-        location.reload();
+        form.submit();
     }
 };
