@@ -6,11 +6,25 @@ var router = express.Router();
 //   res.send('respond with a resource');
 // });
 
-//localhost:3000/users/register
+//localhost:3000/users/register 
+// router.post("/register", function(req, res){
+//     console.log(req.body);
+//     res.send();
+// });
+
+
 router.post("/register", function(req, res){
-    console.log(req.body);
-    res.send();
+    const {username, email, password} = req.body;
+
+
+    //server side validation
+    //check for duplicates
+    //insert into db
+    //respond
 });
+
+
+
 
 // router.post("/login", function(req, res){
 

@@ -14,9 +14,6 @@ router.get("/PostImage", function(req, res) {
     res.render('PostImage')
 });
 
-// router.get("/Registration", function(req, res) {
-//     res.render('Registration')
-// });
 router.get("/Registration", function(req, res) {
     res.render('Registration', {js:["Registration.js"]} )
 });
