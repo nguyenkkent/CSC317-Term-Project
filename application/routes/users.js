@@ -16,7 +16,7 @@ router.post("/register", function(req, res){
     db.query('select id from users where username=?',[username])
     .then(function([results, fields]) {
         if (results && results.length == 0){ //username doesn't exist
-            return db.query(`select id from users where email=?`, [email]);
+            return db.query('select id from users where email=?', [email]);
         }
         else{
             throw new Error("username already exists");
@@ -34,8 +34,7 @@ router.post("/register", function(req, res){
         }
         else{
             throw new Error("user could not be made");
-        }
-        
+        } 
     }).catch(function(err){
         res.redirect("/Registration");
         next(err);
@@ -45,8 +44,54 @@ router.post("/register", function(req, res){
 });
 
 
-router.post("/login", function(req, res){
+
+// router.post("/register", function(req, res){
+//     const {username, email, password} = req.body;
     
+//     //server side validation
+//     //check for duplicates
+//     db.query('select id from users where username=?',[username])
+//     .then(function([results, fields]) {
+//         if (results && results.length == 0){ //username doesn't exist
+//             res.redirect("/login");
+//         }
+//         else{
+//             throw new Error("username already exists");
+//         }
+//     }).catch(function(err){
+//         next(err);
+//     });
+//     //insert into db
+//     //respond
+// });
+
+
+
+
+// router.post("/register", function(req, res){
+//     const {username, email, password} = req.body;
+    
+//     //server side validation
+//     //check for duplicates
+//     db.query('select id from users where username=?',[username])
+//     .then(function([results, fields]) {
+//         if (results && results.length == 0){ //username doesn't exist
+//             return db.execute('insert into users (username, email) value (?,?)', [username, email]);
+//         }
+//         else{
+//             throw new Error("username already exists");
+//         }
+//     }).catch(function(err){
+//         res.redirect("/Registration");
+//         next(err);
+//     });
+//     //insert into db
+//     //respond
+// });
+
+
+
+router.post("/login", function(req, res){
 });
 
 module.exports = router;
