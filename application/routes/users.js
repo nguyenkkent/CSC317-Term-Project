@@ -13,15 +13,15 @@ var router = express.Router();
 // });
 
 
-router.post("/register", function(req, res){
-    const {username, email, password} = req.body;
+// router.post("/register", function(req, res){
+//     const {username, email, password} = req.body;
 
 
-    //server side validation
-    //check for duplicates
-    //insert into db
-    //respond
-});
+//     //server side validation
+//     //check for duplicates
+//     //insert into db
+//     //respond
+// });
 
 
 
