@@ -16,4 +16,18 @@
     {{{body}}}
     {{> footer}}
   </body>
+  {{#if isLoggedIn}}
+    <script> 
+      document.getElementById('logout-button')
+      .addEventListener("click", function (ev){
+        fetch("/users/logout", {method: "POST"})
+        .then(response => response.json()) // parameter => return parameter.json()
+        .then(function(res_json){
+          console.log(res_json);
+          window.location.replace("/")//front-end redirect
+        })
+        .catch(err => console.log(err));
+      })
+    </script>
+  {{/if}}
 </html>

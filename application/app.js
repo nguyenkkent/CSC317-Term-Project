@@ -48,6 +48,10 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 
 app.use(function(req, res, next){
   console.log(req.session);
+  if (req.session.username){
+    res.locals.isLoggedIn = true;
+    res.locals.username = req.session.username;
+  }
   next();
 })
 

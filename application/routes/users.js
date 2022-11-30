@@ -73,6 +73,19 @@ router.post("/login", function(req, res, next){
         });
 });
 
-router.delete("/login");
+// router.delete("/login");
+router.post("/logout", function(req, res, next){
+    req.session.destroy(function(destroyError){
+        if(destroyError){
+            next(err);
+        }
+        else{
+            res.json({
+                status : 200,
+                message : "You have been logged out"
+            })
+        }
+    });
+});
 
 module.exports = router;
