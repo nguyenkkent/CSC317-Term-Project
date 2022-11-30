@@ -1,12 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const db = require("../conf/database");
-
-// router.post("/register", function(req, res){
-//     console.log(req.body);
-//     res.send("/r register route is working");
-// });
-
+const bcrypt = require('bcrypt');
 
 router.post("/register", function(req, res, next){
     const {username, email, password} = req.body;
@@ -21,12 +16,16 @@ router.post("/register", function(req, res, next){
         }
     }).then(function([results, fields]) {//email doesn't exist
             if (results && results.length == 0){ 
-                return db.execute('insert into users (username, email, password) value (?,?,?)', [username, email, password]);
+                return bcrypt.hash(password, 2);
             }
             else{
                 throw new Error("email already exists");
             }       
-    }).then(function([results, fields]) {
+    }).then(function(hashedPassword){
+        return db.execute('insert into users (username, email, password) value (?,?,?)', [username, email, hashedPassword]);//the items in the array are the items added into the value of the columns in mysql
+    })
+    
+    .then(function([results, fields]) {
         if (results && results.affectedRows == 1){
             res.redirect("/login");
         }
