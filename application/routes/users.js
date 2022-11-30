@@ -14,17 +14,18 @@ router.post("/register", function(req, res, next){
         else{
             throw new Error("username already exists");
         }
-    }).then(function([results, fields]) {//email doesn't exist
-            if (results && results.length == 0){ 
-                return bcrypt.hash(password, 2);
-            }
-            else{
-                throw new Error("email already exists");
-            }       
-    }).then(function(hashedPassword){
+    })
+    .then(function([results, fields]) {//email doesn't exist
+        if (results && results.length == 0){ 
+            return bcrypt.hash(password, 2);
+        }
+        else{
+            throw new Error("email already exists");
+        }       
+    })
+    .then(function(hashedPassword){
         return db.execute('insert into users (username, email, password) value (?,?,?)', [username, email, hashedPassword]);//the items in the array are the items added into the value of the columns in mysql
     })
-    
     .then(function([results, fields]) {
         if (results && results.affectedRows == 1){
             res.redirect("/login");
@@ -32,19 +33,28 @@ router.post("/register", function(req, res, next){
         else{
             throw new Error("user could not be made");
         } 
-    }).catch(function(err){
+    })
+    .catch(function(err){
         res.redirect("/Registration");
         next(err);
     });
 });
 
 
-
 router.post("/login", function(req, res, next){
     const {username, password} = req.body;
-    db.query('select id, username, email from users where username=? and password=?', [username, password])
+    db.query('select id, username, password from users where username=?', [username])
         .then(function([results, fields]){
             if (results && results.length == 1){
+                let dbPassword = results[0].password; // since results return an array of rows matching username we select the only user at index 0 and their .password property
+                return bcrypt.compare(password, dbPassword);
+            }
+            else{
+                throw new Error("Invalid user credentials");
+            }
+        })
+        .then(function(passwordMatched){
+            if (passwordMatched){
                 res.redirect("/");
             }
             else{
@@ -56,6 +66,6 @@ router.post("/login", function(req, res, next){
         });
 });
 
-module.delete("/login");
+router.delete("/login");
 
 module.exports = router;
