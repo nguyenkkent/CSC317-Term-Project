@@ -8,11 +8,9 @@ const db = require("../conf/database");
 // });
 
 
-router.post("/register", function(req, res,next){
+router.post("/register", function(req, res, next){
     const {username, email, password} = req.body;
     
-    //server side validation
-    //check for duplicates
     db.query('select id from users where username=?',[username])
     .then(function([results, fields]) {
         if (results && results.length == 0){ //username doesn't exist
@@ -39,67 +37,26 @@ router.post("/register", function(req, res,next){
         res.redirect("/Registration");
         next(err);
     });
-    //insert into db
-    //respond
 });
 
 
 
-// router.post("/register", function(req, res){
-//     const {username, email, password} = req.body;
-    
-//     //server side validation
-//     //check for duplicates
-//     db.query('select id from users where username=?',[username])
-//     .then(function([results, fields]) {
-//         if (results && results.length == 0){ //username doesn't exist
-//             db.execute('insert into users (username, email, password) value (?,?,?)', [username, email, password]);
-//             res.redirect("/login");
-//         }
-//         else{
-//             throw new Error("username already exists");
-//         }
-//     }).catch(function(err){
-//         next(err);
-//     });
-//     //insert into db
-//     //respond
-// });
-
-
-// router.post("/register", function(req, res){
-//     const {username, email, password} = req.body;
-    
-//     //server side validation
-//     //check for duplicates
-//     db.query('select id from users where username=?',[username])
-//     .then(function([results, fields]) {
-//         if (results && results.length == 0){ //username doesn't exist
-//             return db.query('select id from users where email=?', [email]);
-//         }
-//         else{
-//             throw new Error("username already exists");
-//         }
-//     }).then(function([results, fields]) {//email doesn't exist
-//             if (results && results.length == 0){ 
-//                 db.execute('insert into users (username, email, password) value (?,?,?)', [username, email, password]);
-//                 res.redirect("/login");
-//             }
-//             else{
-//                 throw new Error("email already exists");
-//             }       
-//     }).catch(function(err){
-//         res.redirect("/Registration");
-//         next(err);
-//     });
-//     //insert into db
-//     //respond
-// });
-
-
-
-
-router.post("/login", function(req, res){
+router.post("/login", function(req, res, next){
+    const {username, password} = req.body;
+    db.query('select id, username, email from users where username=? and password=?', [username, password])
+        .then(function([results, fields]){
+            if (results && results.length == 1){
+                res.redirect("/");
+            }
+            else{
+                throw new Error("Invalid user credentials");
+            }
+        })
+        .catch(function(err){
+            next(err);
+        });
 });
+
+module.delete("/login");
 
 module.exports = router;
