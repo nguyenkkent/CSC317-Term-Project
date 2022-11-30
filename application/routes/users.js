@@ -43,10 +43,15 @@ router.post("/register", function(req, res, next){
 
 router.post("/login", function(req, res, next){
     const {username, password} = req.body;
+    let loggedUserId;//these will be accessible in the later callback functions due to closure
+    let loggedUsername;
     db.query('select id, username, password from users where username=?', [username])
         .then(function([results, fields]){
             if (results && results.length == 1){
                 let dbPassword = results[0].password; // since results return an array of rows matching username we select the only user at index 0 and their .password property
+                //assertion: username is found(since row==1 after query)
+                loggedUserId = results[0].id;//assign values to declared variable in the outer function.
+                loggedUsername = results[0].username;
                 return bcrypt.compare(password, dbPassword);
             }
             else{
@@ -55,6 +60,8 @@ router.post("/login", function(req, res, next){
         })
         .then(function(passwordMatched){
             if (passwordMatched){
+                req.session.userId = loggedUserId;//this will create a new session and log in user after correct password
+                req.session.username = loggedUsername;
                 res.redirect("/");
             }
             else{
