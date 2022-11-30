@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const {isLoggedIn} = require("../middleware/protectors");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +11,7 @@ router.get("/login", function(req, res) {
     res.render('login');
 });
 
-router.get("/PostImage", function(req, res) {
+router.get("/PostImage", isLoggedIn, function(req, res) {//if a path matches /PostImage then isLoggedIn is ran before the anon function after it.
     res.render('PostImage')
 });
 
