@@ -8,7 +8,7 @@ const db = require("../conf/database");
 // });
 
 
-router.post("/register", function(req, res){
+router.post("/register", function(req, res,next){
     const {username, email, password} = req.body;
     
     //server side validation
@@ -53,6 +53,7 @@ router.post("/register", function(req, res){
 //     db.query('select id from users where username=?',[username])
 //     .then(function([results, fields]) {
 //         if (results && results.length == 0){ //username doesn't exist
+//             db.execute('insert into users (username, email, password) value (?,?,?)', [username, email, password]);
 //             res.redirect("/login");
 //         }
 //         else{
@@ -66,8 +67,6 @@ router.post("/register", function(req, res){
 // });
 
 
-
-
 // router.post("/register", function(req, res){
 //     const {username, email, password} = req.body;
     
@@ -76,11 +75,19 @@ router.post("/register", function(req, res){
 //     db.query('select id from users where username=?',[username])
 //     .then(function([results, fields]) {
 //         if (results && results.length == 0){ //username doesn't exist
-//             return db.execute('insert into users (username, email) value (?,?)', [username, email]);
+//             return db.query('select id from users where email=?', [email]);
 //         }
 //         else{
 //             throw new Error("username already exists");
 //         }
+//     }).then(function([results, fields]) {//email doesn't exist
+//             if (results && results.length == 0){ 
+//                 db.execute('insert into users (username, email, password) value (?,?,?)', [username, email, password]);
+//                 res.redirect("/login");
+//             }
+//             else{
+//                 throw new Error("email already exists");
+//             }       
 //     }).catch(function(err){
 //         res.redirect("/Registration");
 //         next(err);
@@ -88,6 +95,7 @@ router.post("/register", function(req, res){
 //     //insert into db
 //     //respond
 // });
+
 
 
 
