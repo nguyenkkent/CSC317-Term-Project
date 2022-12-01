@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const db = require("../conf/database");
 const bcrypt = require('bcrypt');
+const UserError = require("../helpers/error/UserError");
 
 router.post("/register", function(req, res, next){
     const {username, email, password} = req.body;
@@ -55,14 +56,18 @@ router.post("/login", function(req, res, next){
                 return bcrypt.compare(password, dbPassword);
             }
             else{
-                throw new Error("Invalid user credentials");
+                throw new UserError("Failed Login: Invalid user credentials", "/login", 200);
             }
         })
         .then(function(passwordMatched){
             if (passwordMatched){
                 req.session.userId = loggedUserId;//this will create a new session and log in user after correct password
                 req.session.username = loggedUsername;
-                res.redirect("/");
+                //sending flash messages before redirecting
+                req.flash("success", `Hello ${loggedUsername}, you are now logged in`);
+                req.session.save(function(saveErr){
+                    res.redirect("/"); 
+                });       
             }
             else{
                 throw new Error("Invalid user credentials");

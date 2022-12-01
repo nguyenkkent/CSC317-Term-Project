@@ -4,7 +4,10 @@ module.exports ={
             next();
         }
         else{
-            res.redirect("/login");
+            req.flash("error", "You nust ve logged in to post");
+            req.session.save(function(saveError){
+                res.redirect("/login");
+            })            
         }
     }
 };
