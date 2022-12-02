@@ -57,7 +57,7 @@ router.post("/login", function(req, res, next){
             }
             else{
                 throw new UserError("Failed Login: Invalid user credentials", "/login", 200);
-            }
+            }   
         })
         .then(function(passwordMatched){
             if (passwordMatched){
@@ -70,11 +70,19 @@ router.post("/login", function(req, res, next){
                 });       
             }
             else{
-                throw new Error("Invalid user credentials");
+                throw new UserError("Failed Login: Invalid user credentials", "/login", 200);
             }
         })
         .catch(function(err){
-            next(err);
+            if (err instanceof UserError){
+                req.flash("error", err.getMessage());
+                req.session.save(function(saveErr){
+                    res.redirect(err.getRedirectURL());
+                })
+            }
+            else{
+                next(err);
+            }
         });
 });
 
