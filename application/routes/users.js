@@ -115,9 +115,8 @@ router.post("/logout", function(req, res, next){
             res.json({
                 status : 200,
                 message : "You have been logged out"
-            })
+            })           
         }
-    });
+    })
 });
-
 module.exports = router;
