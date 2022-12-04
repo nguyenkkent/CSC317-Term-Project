@@ -29,7 +29,10 @@ router.post("/register", function(req, res, next){
     })
     .then(function([results, fields]) {
         if (results && results.affectedRows == 1){
-            res.redirect("/login");
+            req.flash("success", `User has been created`);
+            req.session.save(function(saveErr){
+                res.redirect("/");
+            });         
         }
         else{
             throw new Error("user could not be made");
