@@ -13,7 +13,8 @@ router.post("/register", function(req, res, next){
             return db.query('select id from users where email=?', [email]);
         }
         else{
-            throw new Error("username already exists");
+            req.flash("error", "username already exists");
+            throw new Error("username already exists"); 
         }
     })
     .then(function([results, fields]) {//email doesn't exist
@@ -21,7 +22,8 @@ router.post("/register", function(req, res, next){
             return bcrypt.hash(password, 2);
         }
         else{
-            throw new Error("email already exists");
+            req.flash("error", "email already exists");
+            throw new Error("email already exists");            
         }       
     })
     .then(function(hashedPassword){
@@ -31,17 +33,31 @@ router.post("/register", function(req, res, next){
         if (results && results.affectedRows == 1){
             req.flash("success", `User has been created`);
             req.session.save(function(saveErr){
-                res.redirect("/");
+                res.redirect("/login");
             });         
         }
         else{
+            req.flash("error", `user could not be made`);
             throw new Error("user could not be made");
         } 
     })
     .catch(function(err){
+        req.flash("error", "Something went wrong");
         res.redirect("/Registration");
         next(err);
     });
+    // .catch(function(err){
+    //     if (err instanceof UserError){
+    //         req.flash("error", err.getMessage());
+    //         req.session.save(function(saveErr){
+    //             res.redirect(err.getRedirectURL());
+    //         })
+    //         res.redirect("/Registration");
+    //     }
+    //     else{
+    //         next(err);
+    //     }
+    // });
 });
 
 
