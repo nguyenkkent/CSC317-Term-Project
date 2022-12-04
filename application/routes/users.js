@@ -86,7 +86,6 @@ router.post("/login", function(req, res, next){
         });
 });
 
-// router.delete("/login");
 router.post("/logout", function(req, res, next){
     req.session.destroy(function(destroyError){
         if(destroyError){
