@@ -9,8 +9,12 @@
     <script defer src = "/public/js/{{this}}"> </script>
     {{/each}}
   </head>
-
   <body>
+
+    {{#if (nonEmptyObject messages) }}
+    {{> flashmessage}}
+    {{/if}}
+    
     {{> header}}
     {{> navigation}}
     {{{body}}}

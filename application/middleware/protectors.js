@@ -4,7 +4,7 @@ module.exports ={
             next();
         }
         else{
-            req.flash("error", "You nust ve logged in to post");
+            req.flash("error", "You nust be logged in to post");
             req.session.save(function(saveError){
                 res.redirect("/login");
             })            
