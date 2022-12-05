@@ -16,7 +16,6 @@ router.get("/PostImage", isLoggedIn, function(req, res) {//if a path matches /Po
 });
 
 
-
 router.get("/Registration", function(req, res) {
     res.render('Registration' )
 });
@@ -24,8 +23,6 @@ router.get("/Registration", function(req, res) {
 // router.get("/Registration", function(req, res) {
 //     res.render('Registration', {js:["Registration.js"]} )
 // });
-
-
 
 //don't forget about ViewPost route?
 router.get("/ViewPost", function(req, res) {
