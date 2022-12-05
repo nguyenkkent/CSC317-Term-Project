@@ -1,6 +1,6 @@
 <body class="background">
     <div class="container">
-        <form>
+        <form action="/posts/create" method="post" enctype="multipart/form-data">
             <h2>Post Image</h2>
             <div class="form-group">
                 <label for="title">Enter title:</label>
@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <label for="image">Upload image:</label>
-                <input class="form-control" type="file" name="image" id="image" accept="image/*" required>
+                <input class="form-control" type="file" name="uploadImage" id="image" accept="image/*" required multiple>
             </div>
             <div class="form-group">
                 <input type="checkbox" name="accept" id="accept"> I hereby agree to the <a href="">Acceptable Use Policy </a> for uploading images

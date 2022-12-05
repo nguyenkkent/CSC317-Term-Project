@@ -75,6 +75,7 @@ router.post("/login", function(req, res, next){
                 return bcrypt.compare(password, dbPassword);
             }
             else{
+
                 throw new UserError("Failed Login: Invalid user credentials", "/login", 200);
             }   
         })
