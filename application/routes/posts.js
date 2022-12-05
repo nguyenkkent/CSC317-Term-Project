@@ -3,6 +3,7 @@ var router = express.Router();
 const db = require('../conf/database');
 const multer = require("multer");
 const sharp = require("sharp");
+const { isLoggedIn } = require("../middleware/protectors");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -16,9 +17,22 @@ const storage = multer.diskStorage({
   
 const upload = multer({ storage: storage });
   
-router.post("/create", upload.single("uploadImage"), function(req, res, next){
-    console.log(req);
-    res.send();
+router.post("/create", isLoggedIn ,upload.single("uploadImage"), function(req, res, next){
+    let uploadedFile = req.file.path;//assertion: file object exists
+    let thumbnailName = `thumbnail-${req.file.fieldname}`
+    let destinationOfThumbnail = `${req.file.destination}/${thumbnailName}`;
+    const {title, description } = req.body //.body contains key-value pairs of data submitted in the request body. title and description here are keys.
+    const userId = req.session.userId;
+
+    sharp(uploadedFile)
+        .resize(200)
+        .toFile(destinationOfThumbnail)
+        .then(function(){
+            let baseSQL = `INSERT INTO posts (title, description, image, thumbnail, fk_)`
+            db.query
+        })
+        .catch(err => next(err));
+
 });
 
 
