@@ -9,12 +9,12 @@ const storage = multer.diskStorage({
       cb(null, 'public/images/uploads')
     },
     filename: function (req, file, cb) {
-      let fileExt = file.mimetype.split("/"[1]);
+      let fileExt = file.mimetype.split("/")[1];  
       cb(null,  `${file.fieldname}-${Date.now()}-${Math.round(Math.random() * 1E9)}.${fileExt}` )
     }
   });
   
-const upload = multer({ storage: storage })
+const upload = multer({ storage: storage });
   
 router.post("/create", upload.single("uploadImage"), function(req, res, next){
     console.log(req);
