@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
+//middleware needs to be hooked up the routes
 const {isLoggedIn} = require("../middleware/protectors");
-const {getRecentPosts} = require("../middleware/posts");
+const {getRecentPosts, getPostsById} = require("../middleware/posts");
 
 /* GET home page. */
 router.get('/', getRecentPosts, function(req, res, next) {
@@ -21,13 +22,14 @@ router.get("/registration", function(req, res) {
 // });
 
 router.get("/viewpost", function(req, res) {
-    res.render('ViewPost')
+    res.render('viewpost')
 });
 router.get("/postimage", isLoggedIn, function(req, res) {//if a path matches /PostImage then isLoggedIn is ran before the anon function after it.
     res.render('postimage')
 });
-router.get("/posts/:id(\\d+)", function(req, res){
-    console.log(req.params);
+router.get("/posts/:id(\\d+)", getPostsById ,function(req, res){
+    // console.log(req); //check the render of our req object
+    // console.log(req.params);
     res.render("viewpost", /*{js: [viewpost.js]} */ )
 });
 

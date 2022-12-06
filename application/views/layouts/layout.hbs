@@ -33,12 +33,11 @@
         .then(response => response.json()) // parameter => return parameter.json()
         .then(function(res_json){
           console.log(res_json);
-          window.location.replace("/Login")//front-end redirect
+          window.location.replace("/login")//front-end redirect
         })
         .catch(err => console.log(err));
       })
     </script>
   {{/if}}
-
 
 </html>
