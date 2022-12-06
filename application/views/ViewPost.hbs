@@ -1,14 +1,20 @@
     {{log this}}
     <section>
         <p>
-            Title: "Earth from above"
+            Title: 
+            <br>
+            <strong>'{{currentPost.title}}'</strong> 
         </p>
         <p> 
-            Original poster: Kent
+            Posted by: 
+            <br>
+            <strong>{{currentPost.username}}</strong>  
         </p>
         <p>
-            Posted at: Oct 5, 2022
+            Posted at: 
+            <br>
+            <strong>{{currentPost.createdAt}}</strong>
         </p>
     </section>
 
-<img class="image" src="/public/images/nasa-wallpapers-28756-1798901.jpg" alt="Uh oh I broke something">
+<img class="image" src= {{currentPost.image}} alt="Uh oh something went wrong">

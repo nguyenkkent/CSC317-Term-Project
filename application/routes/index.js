@@ -24,9 +24,11 @@ router.get("/registration", function(req, res) {
 router.get("/viewpost", function(req, res) {
     res.render('viewpost')
 });
+
 router.get("/postimage", isLoggedIn, function(req, res) {//if a path matches /PostImage then isLoggedIn is ran before the anon function after it.
     res.render('postimage')
 });
+
 router.get("/posts/:id(\\d+)", getPostsById ,function(req, res){
     // console.log(req); //check the render of our req object
     // console.log(req.params);
