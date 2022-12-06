@@ -12,22 +12,24 @@ router.get("/login", function(req, res) {
     res.render('login');
 });
 
-router.get("/PostImage", isLoggedIn, function(req, res) {//if a path matches /PostImage then isLoggedIn is ran before the anon function after it.
-    res.render('PostImage')
+router.get("/postimage", isLoggedIn, function(req, res) {//if a path matches /PostImage then isLoggedIn is ran before the anon function after it.
+    res.render('postimage')
 });
 
 
-router.get("/Registration", function(req, res) {
-    res.render('Registration' )
+router.get("/registration", function(req, res) {
+    res.render('registration' )
 });
 
 // router.get("/Registration", function(req, res) {
 //     res.render('Registration', {js:["Registration.js"]} )
 // });
 
-//don't forget about ViewPost route?
-router.get("/ViewPost", function(req, res) {
+
+router.get("/viewpost", function(req, res) {
     res.render('ViewPost')
 });
+
+router.get("/viewposts")
 
 module.exports = router;
