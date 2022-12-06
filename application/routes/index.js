@@ -12,11 +12,6 @@ router.get("/login", function(req, res) {
     res.render('login');
 });
 
-router.get("/postimage", isLoggedIn, function(req, res) {//if a path matches /PostImage then isLoggedIn is ran before the anon function after it.
-    res.render('postimage')
-});
-
-
 router.get("/registration", function(req, res) {
     res.render('registration' )
 });
@@ -25,11 +20,15 @@ router.get("/registration", function(req, res) {
 //     res.render('Registration', {js:["Registration.js"]} )
 // });
 
-
 router.get("/viewpost", function(req, res) {
     res.render('ViewPost')
 });
-
-router.get("/viewposts")
+router.get("/postimage", isLoggedIn, function(req, res) {//if a path matches /PostImage then isLoggedIn is ran before the anon function after it.
+    res.render('postimage')
+});
+router.get("/posts/:id(\\d+)", function(req, res){
+    console.log(req.params);
+    res.render("viewpost", /*{js: [viewpost.js]} */ )
+});
 
 module.exports = router;
