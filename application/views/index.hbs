@@ -1,11 +1,14 @@
-{{!-- <h1> <strong>Welcome to the main page</strong> </h1> --}}
-
 <main id="main-content">
-    {{!-- <h2 id="product-counter"></h2>
-    <br>
-    <div id="product-list" class="product-list">
+{{#each results}} 
+{{log this}}
+{{!-- "this" referes to each element in the results array. each row will contain the items bellow--}}
+    <div>
+        <img src="{{this.thumbnail}}" alt="">
+        <p>{{this.title}}</p>
+        <p>{{this.description}}</p>
+        <a href="/posts/{{this.id}}" Details ></a>
     </div>
-    <br> --}}
+{{/each}}
 </main>
 
 

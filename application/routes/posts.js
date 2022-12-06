@@ -19,7 +19,7 @@ const upload = multer({ storage: storage });
   
 router.post("/create", isLoggedIn ,upload.single("uploadImage"), function(req, res, next){
     let uploadedFile = req.file.path;//assertion: file object exists
-    let thumbnailName = `thumbnail-${req.file.fieldname}`
+    let thumbnailName = `thumbnail-${req.file.filename}`
     let destinationOfThumbnail = `${req.file.destination}/${thumbnailName}`;
     const {title, description } = req.body //.body contains key-value pairs of data submitted in the request body. title and description here are keys.
     const userId = req.session.userId;
