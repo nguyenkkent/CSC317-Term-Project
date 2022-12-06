@@ -1,20 +1,17 @@
     {{log this}}
-    <section>
-        <p>
-            Title: 
-            <br>
-            <strong>'{{currentPost.title}}'</strong> 
-        </p>
+    <h2>
+        <strong>'{{currentPost.title}}'</strong> 
+    </h2>
+        <section>
         <p> 
             Posted by: 
             <br>
-            <strong>{{currentPost.username}}</strong>  
+            <strong>{{currentPost.username}}</strong></br>
         </p>
         <p>
             Posted at: 
             <br>
-            <strong>{{currentPost.createdAt}}</strong>
+            <strong>{{formatDate currentPost.createdAt}}</strong></br>
         </p>
     </section>
-
-<img class="image" src= {{currentPost.image}} alt="Uh oh something went wrong">
+<img class="image" src= /{{currentPost.image}} alt="Uh oh something went wrong">
