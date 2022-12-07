@@ -4,7 +4,7 @@ var router = express.Router();
 const {isLoggedIn} = require("../middleware/protectors");
 const {getRecentPosts, getPostsById} = require("../middleware/posts");
 
-/* GET home page. */
+//the getRecentPosts middleware here populates the page with recent posts
 router.get('/', getRecentPosts, function(req, res, next) {
     res.render('index', { title: 'CSC 317 App', name:"Kent Nguyen" });
 });

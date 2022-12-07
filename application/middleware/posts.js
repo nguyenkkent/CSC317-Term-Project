@@ -1,7 +1,10 @@
 //middleware functions need to be hooked up.
 
 const db = require("../conf/database");
+
+//exports these key-value objects
 module.exports = {
+
     getRecentPosts : function(req, res, next){
         db.query("select id, title, description, thumbnail from posts order by createdAt desc limit 8")
         .then(function([results,fields]){

@@ -1,15 +1,16 @@
     <div id="navbar">
         <a href="/">Main</a>
         <a href="/PostImage">Post Images</a>
-        <a href="/ViewPost">View Posts</a>
         <a href="/Registration">Registration</a>
-
         {{#if isLoggedIn}}
             <a id="logout-button">Log Out</a>
         {{else}}
             <a href="/Login">Login</a>
         {{/if}}
-        
+        {{!-- <div>
+        <input type="text" id="search-text", name="search-text">
+        <button class="search-button" type="post" id="search" name="search">search</button>    
+        </div>   --}}
     </div>    
     <br>
     

@@ -43,5 +43,11 @@ router.post("/create", isLoggedIn ,upload.single("uploadImage"), function(req, r
         .catch(err => next(err));
 });
 
-
+router.get("/search", function(req, res, next){
+  // console.log(req.query);
+  // console.log(req);
+  let searchTerm = `%${req.query.searchTerm}%` //the % is a regex so %stuff can locate SOMEstuff
+  let originalSearchTerm = req.query.searchTerm;
+  res.render("index");
+});
 module.exports = router;

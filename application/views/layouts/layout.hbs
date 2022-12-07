@@ -18,6 +18,10 @@
     {{> header}}
     {{> navigation}}
 
+    {{#if isLoggedIn}}
+     {{> searchbar}}
+    {{/if}}
+
     {{#if (nonEmptyObject messages) }}
     {{> flashmessage}}
     {{/if}}
