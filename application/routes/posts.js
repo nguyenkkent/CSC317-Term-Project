@@ -45,9 +45,7 @@ router.post("/create", isLoggedIn, upload.single("uploadImage"), function (req, 
 });
 
 router.get("/search", getRecentPosts, function (req, res, next) {
-    // console.log(req.query);
-    // console.log(req);
-    let searchTerm = `%${req.query.searchTerm}%` //the % is a regex so %stuff can locate SOMEstuff
+    let searchTerm = `%${req.query.searchTerm}%` //the % is a regex so %stuff can locate for example SOMEstuff
     let originalSearchTerm = req.query.searchTerm;
     let baseSQL = `select id, title, description, thumbnail, concat_ws(" ", title, description) as haystack
   from posts
@@ -57,7 +55,7 @@ router.get("/search", getRecentPosts, function (req, res, next) {
     db.execute(baseSQL, [searchTerm])
         .then(function ([results, fields]) {
             if (results.length == 0){
-                req.flash("error", "0 results found, displaying recent posts");
+                req.flash("error", `${results.length} found, displaying recent posts`);
                 req.session.save(function(saveErr){
                 res.render("index");
                 })
@@ -65,11 +63,13 @@ router.get("/search", getRecentPosts, function (req, res, next) {
             else{
                 res.locals.results = results; //this creates a var results out of the results array from the db.execute
                 req.flash('success', `${results.length} results found`)
+                console.log(req);
                 req.session.save(function(saveErr){
                     res.render("index");
                 })                
             }
         })
+        .catch(err => next(err));
 
 });
 module.exports = router;
