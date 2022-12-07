@@ -12,9 +12,9 @@
             method="get"
             action="/posts/search"
             enctype="application/x-www-form-urlencoded">
-            <input type="text" id="search-text", name="searchTerm">
+            <input type="text" id="search-text", name="searchTerm", value={{searchTerm}}>
             <button class="search-button" type="submit" id="search">Search</button> 
-            {{!-- keep in that namy "name=" we assign will also appear as a req object --}}  
+            {{!-- keep in mind that "name=" we assign will also appear as a req object --}}  
             </form>
             {{!-- remember that when we searching we are not using the router.get  --}}
         </div>  

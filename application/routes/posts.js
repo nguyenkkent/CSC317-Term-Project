@@ -54,6 +54,7 @@ router.get("/search", getRecentPosts, function (req, res, next) {
     //from posts and haystack matches ?
     db.execute(baseSQL, [searchTerm])
         .then(function ([results, fields]) {
+            res.locals.searchTerm = originalSearchTerm;
             if (results.length == 0){
                 req.flash("error", `${results.length} found, displaying recent posts`);
                 req.session.save(function(saveErr){
