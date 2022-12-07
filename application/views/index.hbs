@@ -1,11 +1,9 @@
 <main id="main-content">
 {{#each results}} 
-{{log this}}
-
-
+{{!-- {{log this}} --}}
 {{!-- "this" referes to each element in the results array. each row will contain the items bellow--}}
     <div>
-        <img src="{{this.thumbnail}}" alt="">
+        <img src="{{this.thumbnail}}" >
         <p>{{this.title}}</p>
         <p>{{this.description}}</p>
         <a href="/posts/{{this.id}}">Details</a>

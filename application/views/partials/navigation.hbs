@@ -7,10 +7,17 @@
         {{else}}
             <a href="/Login">Login</a>
         {{/if}}
-        {{!-- <div>
-        <input type="text" id="search-text", name="search-text">
-        <button class="search-button" type="post" id="search" name="search">search</button>    
-        </div>   --}}
+        <div>
+            <form class="search"
+            method="get"
+            action="/posts/search"
+            enctype="application/x-www-form-urlencoded">
+            <input type="text" id="search-text", name="searchTerm">
+            <button class="search-button" type="submit" id="search">Search</button> 
+            {{!-- keep in that namy "name=" we assign will also appear as a req object --}}  
+            </form>
+            {{!-- remember that when we searching we are not using the router.get  --}}
+        </div>  
     </div>    
     <br>
     

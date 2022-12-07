@@ -54,7 +54,7 @@ footer {
     color: white;
     text-decoration: none;
     font-size: 17px;
-    width: 24.1%;
+    width: 20%;
     text-align: center;
 }
 
@@ -69,7 +69,8 @@ footer {
 
 .search{
     float: right;
-
+    position: relative;
+    top: 5.5px;
 }
 
 .image {
