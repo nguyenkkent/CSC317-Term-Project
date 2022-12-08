@@ -6,7 +6,7 @@ const db = require("../conf/database");
 module.exports = {
 
     getRecentPosts : function(req, res, next){
-        db.query("select id, title, description, thumbnail from posts order by createdAt desc limit 8")
+        db.query("select id, title, description, thumbnail from posts order by createdAt desc limit 18")
         .then(function([results,fields]){
             if(results && fields.length){
                 res.locals.results = results;
@@ -38,6 +38,13 @@ module.exports = {
 
     getCommentsForPostById : function(req, res, next){
         let postId = req.params.id;
+        if (!postId){
+            res.flash("error", "Post does not exists")
+            res.session.save(function(saveErr){
+                location.reload();
+                return;
+            })
+        }
         // let baseSQL = `select c.id, c.text, c.createdAt, u.username
         // from comments c
         // join users u

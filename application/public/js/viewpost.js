@@ -1,9 +1,3 @@
-
-
-function addNewComment(data){
-};
-
-
 document.getElementById("comment-button")
     .addEventListener("click", function(ev){
         let commentTextElement = document.getElementById("comment-text");
@@ -24,7 +18,7 @@ document.getElementById("comment-button")
         .then(response => response.json())
         .then(res_json => {
             location.reload();
-            console.log(res_json);
+            // console.log(res_json);
         })
         setTimeout( window.scrollTo(-10, document.body.scrollHeight), 2000);
     })

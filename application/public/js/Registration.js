@@ -46,7 +46,7 @@ const isValidUsername = (usernameStr) => {
             }
         }      
     }
-
+``
 };
 
 const isValidPassword = (pass1, pass2) => {
