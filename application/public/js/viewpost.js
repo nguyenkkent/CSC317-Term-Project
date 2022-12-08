@@ -26,5 +26,5 @@ document.getElementById("comment-button")
             location.reload();
             console.log(res_json);
         })
-
+        setTimeout( window.scrollTo(-10, document.body.scrollHeight), 2000);
     })
