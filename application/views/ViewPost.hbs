@@ -1,29 +1,30 @@
-    {{!-- {{log this}} --}}
+<h2>
+    <strong>'{{currentPost.title}}'</strong> 
+</h2>
+    <section>
+    <p> 
+        Posted by: 
+        <br>
+        <strong>{{currentPost.username}}</strong></br>
+    </p>
+    <p>
+        Posted at: 
+        <br>
+        <strong>{{formatDate currentPost.createdAt}}</strong></br>
+    </p>
+</section>
+    <img class="image" src= /{{currentPost.image}} alt="Uh oh something went wrong">
 
-
-    <h2>
-        <strong>'{{currentPost.title}}'</strong> 
-    </h2>
-        <section>
-        <p> 
-            Posted by: 
-            <br>
-            <strong>{{currentPost.username}}</strong></br>
-        </p>
-        <p>
-            Posted at: 
-            <br>
-            <strong>{{formatDate currentPost.createdAt}}</strong></br>
-        </p>
-    </section>
-        <img class="image" src= /{{currentPost.image}} alt="Uh oh something went wrong">
-
-    <form>
-        <input type="text" name="comment" id="comment-text">
-        <button id="comment-button" type="" data-postid="{{currentPost.id}}">Post comment</button>
-    </form>
+<form>
+    {{!-- <input type="text" name="comment" id="comment-text"> --}}
     <br>
-    <br>
+    <textarea name="comment" id="comment-text" cols="50" rows="6"></textarea>
+    <button id="comment-button" type="button" data-postid="{{currentPost.id}}">Post comment</button>
+
+
+</form>
+<br>
+<br>
 
 
 
