@@ -33,3 +33,4 @@ Please follow the instructions below and fill in the information requested when 
 ## Run Instructions
 1. change working directory to csc317-code-nguyenkkent/application
 2. npm start
+3. In your browser change the address to http://localhost:3000/
