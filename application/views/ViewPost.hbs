@@ -1,31 +1,35 @@
-<h2>
-    <strong>'{{currentPost.title}}'</strong> 
-</h2>
+<div class="post-information-container">
+    <h2>
+        <strong>'{{currentPost.title}}'</strong>
+    </h2>
     <section>
-    <p> 
-        Posted by: 
-        <br>
-        <strong>{{currentPost.username}}</strong></br>
-    </p>
-    <p>
-        Posted at: 
-        <br>
-        <strong>{{formatDate currentPost.createdAt}}</strong></br>
-    </p>
+        <p>
+            Posted by:
+            <br>
+            <strong class="comment-author">{{currentPost.username}}</strong></br>
+        </p>
+        <p>
+            Posted at:
+            <br>
+            <strong>{{formatDate currentPost.createdAt}}</strong></br>
+        </p>
+</div>
+<br>
+<br>
 </section>
-    <img class="image" src= /{{currentPost.image}} alt="Uh oh something went wrong">
+<img class="image" src=/{{currentPost.image}} alt="Uh oh something went wrong">
 
-<form>
-    {{!-- <input type="text" name="comment" id="comment-text"> --}}
+<div class="post-comment-container">
     <br>
-    <textarea name="comment" id="comment-text" cols="50" rows="6"></textarea>
+    <textarea name="comment" id="comment-contents-box" cols="50" rows="6"></textarea>
     <button id="comment-button" type="button" data-postid="{{currentPost.id}}">Post comment</button>
+</div>
 
-
-</form>
+<div class="comment-list">
+    <br>
+    {{#each currentPost.comments}}
+    {{> comment this}}
+    {{/each}}
+</div>
 <br>
 <br>
-
-
-
-

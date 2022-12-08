@@ -10,6 +10,7 @@ document.getElementById("comment-button")
         let commentText = commentTextElement.value;
         let postId = ev.currentTarget.dataset.postid;
 
+        if (commentText === ""){return}    
         fetch("/comments/create", {
             method : "post",
             headers : {
@@ -22,6 +23,7 @@ document.getElementById("comment-button")
         })
         .then(response => response.json())
         .then(res_json => {
+            location.reload();
             console.log(res_json);
         })
 

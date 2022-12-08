@@ -38,24 +38,37 @@ module.exports = {
 
     getCommentsForPostById : function(req, res, next){
         let postId = req.params.id;
-        let baseSQL = `select c.id, c.text, c.createdAt, u.username
+        // let baseSQL = `select c.id, c.text, c.createdAt, u.username
+        // from comments c
+        // join users u
+        // on c.fk_authorId = u.username
+        // where fk_postId = ?;`;
+        /* 
+        theres a bug with the code above, the join the tables matche does not match the authorId with users' id
+        */
+        
+        let baseSQL = `select c.id, c.text, c.createdAt, u.id,  u.username
         from comments c
         join users u
-        on c.fk_authorId = u.username
-        where fk_postId = ?;`;
+        on c.fk_authorId = u.id
+        where fk_postId =?;`
         db.execute(baseSQL, [postId])
             .then(function([results, fields]){
-                if (results && results.length > 1){
-                    res.locals.currentPost.comments = results; 
-                    // console.log(res.locals.currentPost.comments);
-                    next();
-                }
-                else{
-                    req.flash("error", "Post does not exist")
-                    req.session.save(function(saveErr){
-                        res.redirect("/login");
-                    })
-                }
+                // if (results && results.length > 1){
+                //     res.locals.currentPost.comments = results; 
+                //     console.log(res.locals.currentPost.comments);
+                //     next();
+                // }
+                // else{
+                //     req.flash("error", "Post does not exist")
+                //     req.session.save(function(saveErr){
+                //         res.redirect("/login");
+                //     })
+                // }
+                res.locals.currentPost.comments = results; 
+                console.log(res.locals.currentPost.comments);
+                next();
+
             })
     }
 
