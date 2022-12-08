@@ -5,7 +5,7 @@ const db = require("../conf/database")
 /* 
 try do move this route to posts.js and use /comment instead
 */
-router.post("/create", function(){
+router.post("/create", function(req, res, next){
     console.log(req.body);
     res.json(req.json);
 });

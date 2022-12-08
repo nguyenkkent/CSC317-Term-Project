@@ -1,23 +1,28 @@
+
+
 function addNewComment(data){
 };
-// document.getElementById("comment-button").addEventListener("click", function(ev){
-//     console.log(ev);
-//     console.log("inside event clicker");
-// });
+
 
 document.getElementById("comment-button")
-    .addEventListener("click", function(event){
+    .addEventListener("click", function(ev){
         let commentTextElement = document.getElementById("comment-text");
         let commentText = commentTextElement.value;
         let postId = ev.currentTarget.dataset.postid;
 
         fetch("/comments/create", {
-
             method : "post",
             headers : {
-                 "Content-Type" : "Application/json";
-            }
+                "Content-Type" : "Application/json",
+            },
+            body : JSON.stringify({
+                comment : commentText,
+                postId: postId
+            })  
+        })
+        .then(response => response.json())
+        .then(res_json => {
+            console.log(res_json);
+        })
 
-        })//end of fetch
-
-    });
+    })
