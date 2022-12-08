@@ -30,9 +30,9 @@ router.get("/postimage", isLoggedIn, function(req, res) {//if a path matches /Po
 });
 
 router.get("/posts/:id(\\d+)", getPostsById ,function(req, res){
-    // console.log(req); //check the render of our req object
-    // console.log(req.params);
-    res.render("viewpost", /*{js: [viewpost.js]} */ )
+    res.render("viewpost", {js: ["viewpost.js"]} )
 });
+
+
 
 module.exports = router;

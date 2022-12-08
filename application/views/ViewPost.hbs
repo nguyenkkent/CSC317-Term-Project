@@ -1,4 +1,6 @@
-    {{log this}}
+    {{!-- {{log this}} --}}
+
+
     <h2>
         <strong>'{{currentPost.title}}'</strong> 
     </h2>
@@ -14,4 +16,15 @@
             <strong>{{formatDate currentPost.createdAt}}</strong></br>
         </p>
     </section>
-<img class="image" src= /{{currentPost.image}} alt="Uh oh something went wrong">
+        <img class="image" src= /{{currentPost.image}} alt="Uh oh something went wrong">
+
+    <form>
+        <input type="text" name="comment" id="comment-text">
+        <button id="comment-button" type="" data-postid="{{currentPost.id}}">Post comment</button>
+    </form>
+    <br>
+    <br>
+
+
+
+

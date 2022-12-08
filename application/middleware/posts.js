@@ -18,7 +18,7 @@ module.exports = {
 
     getPostsById : function(req, res, next){
         let postId = req.params.id;
-        let baseSQL = `select p.title, p.description, p.image, p.createdAt, u.username
+        let baseSQL = `select p.id, p.title, p.description, p.image, p.createdAt, u.username
         from posts p
         join users u
         on p.fk_authorId = u.id
