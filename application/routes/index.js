@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 //middleware needs to be hooked up the routes
 const {isLoggedIn} = require("../middleware/protectors");
-const {getRecentPosts, getPostsById} = require("../middleware/posts");
+const {getRecentPosts, getPostsById, getCommentsForPostById} = require("../middleware/posts");
 
 //the getRecentPosts middleware here populates the page with recent posts
 router.get('/', getRecentPosts, function(req, res, next) {
@@ -29,7 +29,7 @@ router.get("/postimage", isLoggedIn, function(req, res) {//if a path matches /Po
     res.render('postimage')
 });
 
-router.get("/posts/:id(\\d+)", getPostsById ,function(req, res){
+router.get("/posts/:id(\\d+)", getPostsById, getCommentsForPostById ,function(req, res){
     res.render("viewpost", {js: ["viewpost.js"]} )
 });
 

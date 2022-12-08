@@ -64,7 +64,6 @@ router.get("/search", getRecentPosts, function (req, res, next) {
             else{
                 res.locals.results = results; //this creates a var results out of the results array from the db.execute
                 req.flash('success', `${results.length} results found`)
-                console.log(req);
                 req.session.save(function(saveErr){
                     res.render("index");
                 })                

@@ -46,18 +46,6 @@ router.post("/register", function(req, res, next){
         res.redirect("/Registration");
         next(err);
     });
-    // .catch(function(err){
-    //     if (err instanceof UserError){
-    //         req.flash("error", err.getMessage());
-    //         req.session.save(function(saveErr){
-    //             res.redirect(err.getRedirectURL());
-    //         })
-    //         res.redirect("/Registration");
-    //     }
-    //     else{
-    //         next(err);
-    //     }
-    // });
 });
 
 

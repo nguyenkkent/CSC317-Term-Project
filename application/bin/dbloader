@@ -96,7 +96,7 @@ async function makeCommentsTable(connection) {
   const [result, _] = await connection.query(
     // Comments Table SQL Goes here
     ` 
-    CREATE TABLE IF NOT EXISTS csc317db.comment (
+    CREATE TABLE IF NOT EXISTS csc317db.comments (
       id INT NOT NULL AUTO_INCREMENT,
       text TEXT NOT NULL,
       fk_authorId INT NOT NULL,
