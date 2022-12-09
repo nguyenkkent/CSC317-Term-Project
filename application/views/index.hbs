@@ -1,2 +1,14 @@
-<h1>{{title}}</h1>
-<p>Hello {{ name }},Welcome to {{title}}</p>
+<main id="main-content" class="recent-post-container">
+{{#each results}} 
+{{!-- {{log this}} --}}
+{{!-- "this" referes to each element in the results array. each row will contain the items bellow--}}
+    <div class="each-post-container">
+        {{!-- <p class="post-title">{{this.title}}</p> --}}
+        <a href="/posts/{{this.id}}">{{this.title}}</a>
+        <img class="post-thumbnail" src="/{{this.thumbnail}}" > {{!-- without adding the front slash in front the pathing gets appended to current route instead of starting at root--}}
+        <p class="post-description">{{this.description}}</p>
+    </div>
+{{/each}}
+</main>
+
+

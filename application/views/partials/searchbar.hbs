@@ -1,0 +1,11 @@
+<div>
+    <form class="search"
+        method="get"
+        action="/posts/search"
+        enctype="application/x-www-form-urlencoded">
+        <input type="text" id="search-text", name="searchTerm">
+        <button class="search-button" type="submit" id="search">Search</button> 
+        {{!-- keep in that namy "name=" we assign will also appear as a req object --}}  
+    </form>
+{{!-- remember that when we searching we are not using the router.get  --}}
+</div>

@@ -18,10 +18,19 @@ Please follow the instructions below and fill in the information requested when 
 
 # Build/Run Instructions
 
-## Build Instructions
-1. steps here
-2. steps here
+## Build Instructions (Mac OS)
+1. In terminal, create a directory for the new project
+2. cd [nameOfYourNewDirectoryHere]
+3. git clone https://github.com/csc317-SFSU-Souza/csc317-code-nguyenkkent.git
+4. cd csc317-code-nguyenkkent
+5. cd application
+6. npm install
+7. npm run builddb
+8. Install latest version of mySQL and mySQL workbench
+9. Locate csc317-code-nguyenkkent/application/bin/dbloader
+10. Under getConnection() update the value for the keys "user" and "password" to math what is mySQL workbench
 
 ## Run Instructions
-1. steps here
-2. steps here 
+1. change working directory to csc317-code-nguyenkkent/application
+2. npm start
+3. In your browser change the address to http://localhost:3000/
