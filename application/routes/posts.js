@@ -37,8 +37,7 @@ router.post("/create", isLoggedIn, upload.single("uploadImage"), function (req, 
             if (results && results.affectedRows == 1) {//if results exists and &7 results.affectedRows exists
                 req.flash("success", "your post has been created!");
                 req.session.save(function (saveErr) {
-                    res.redirect("/postimage");
-                    // res.redirect("/");
+                    res.redirect("/");
                     //we have to save because the redict will happen much faster than the save will. save is async so we don't have to wait for that before redict
                 })
             }

@@ -10,7 +10,7 @@ router.get('/', getRecentPosts, function(req, res, next) {
 });
 
 router.get("/login", function(req, res) {
-    res.render('login');
+    res.render('login', {css:["Mystyle.css"]} );
 });
 
 router.get("/Registration", function(req, res) {
